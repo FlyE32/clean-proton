@@ -4,3 +4,7 @@ This script will list out your directories, and find all sub directories in your
 Input the paths to your compatdata folder(s) for steam (e.g., ~/.steam/steam/steamapps/compatdata/) in to the delete-prefix.sh file under the DIRS array at the top. You must remove the current paths for it to work on your system. They were provided both as my compatdata paths, and example to finding them on other drives.
 
 If the script runs sucessfully, it will index all appid entries and the disc the directory that they are stored in. As well as providing the game name (if found) from the steam api. Keep in mind that this will also include non-steam games running with proton. I plan to add functionality that enables you to view these games' names as well. You will then be prompted to input the index number for the game that you would like to delete the prefix folder for. You will have the ability to cancel (either "CTRL + C" at any point, or by inpputting "q" when prompted to select the index number). This script does nothing more than deleting the proton prefix folder to rebuild once the game is launched again.
+
+It is highly reccomended to create an alias in your .bashrc (or .zshrc) file to run this program. For example, I have assigned the alias clean-proton in bash to run the program. 
+
+The added line is as follows: alias clean-proton="~/scripts/delete-prefix.sh"
