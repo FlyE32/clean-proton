@@ -1,10 +1,79 @@
-# clean-proton
-This script will list out your directories, and find all sub directories in your compatdata folder. The sub directories it searches for will only be the numbered folders (appids) to be queryed by the steam api. 
+      _                                        _              
+  ___| | ___  __ _ _ __        _ __  _ __ ___ | |_ ___  _ __  
+ / __| |/ _ \/ _` | '_ \ _____| '_ \| '__/ _ \| __/ _ \| '_ \ 
+| (__| |  __/ (_| | | | |_____| |_) | | | (_) | || (_) | | | |
+ \___|_|\___|\__,_|_| |_|     | .__/|_|  \___/ \__\___/|_| |_|
+                              |_|                             
 
-Input the paths to your compatdata folder(s) for steam (e.g., ~/.steam/steam/steamapps/compatdata/) in to the delete-prefix.sh file under the DIRS array at the top. You must remove the current paths for it to work on your system. They were provided both as my compatdata paths, and example to finding them on other drives.
+clean-proton is a lightweight Bash utility designed for Linux gamers to manage orphaned, bloated, or problematic Steam Proton compatdata (prefixes). It automatically maps cryptic Steam AppIDs to human-readable game names using the Steam Web API and provides an interactive interface for safe, multi-selection deletion.
 
-If the script runs sucessfully, it will index all appid entries and the disc the directory that they are stored in. As well as providing the game name (if found) from the steam api. Keep in mind that this will also include non-steam games running with proton. I plan to add functionality that enables you to view these games' names as well. You will then be prompted to input the index number for the game that you would like to delete the prefix folder for. You will have the ability to cancel (either "CTRL + C" at any point, or by inpputting "q" when prompted to select the index number). This script does nothing more than deleting the proton prefix folder to rebuild once the game is launched again.
+Features:
 
-It is highly reccomended to create an alias in your .bashrc (or .zshrc) file to run this program. For example, I have assigned the alias clean-proton in bash to run the program. 
+    Auto-Discovery: Scans all mounted drives to find Steam libraries automatically.
 
-The added line is as follows: alias clean-proton="~/scripts/delete-prefix.sh"
+    Persistent Caching: Remembers your library paths and game names to ensure near-instant subsequent runs.
+
+    Steam Web API Integration: Fetches accurate game titles directly from Steam.
+
+    Multi-Select Deletion: Remove multiple prefixes at once by entering their index numbers.
+
+    Zero-Config Setup: Guided first-run experience to get you started in seconds.
+
+Installation
+
+    Clone the repository:
+
+    git clone https://github.com/FlyE32/clean-proton.git
+    cd clean-proton
+
+    Make the script executable:
+    Bash
+
+    chmod +x clean-proton.sh
+
+    Ensure dependencies are installed:
+
+        jq (for JSON parsing)
+
+        curl (for API communication)
+
+        util-linux (for mount detection)
+
+Usage
+
+Simply run the script to start the interactive scanner:
+Bash
+
+./clean-proton.sh
+
+Command Line Flags
+Flag	Description
+-a <path>	Manually add a specific compatdata directory to the cache.
+-s	Force a re-scan of all mounted drives for new Steam libraries.
+-c	Clear the local cache file (~/.clean-proton-cache.txt).
+-h	Show the help menu.
+
+Cache Information
+
+The script stores configuration and game name mappings in:
+~/.clean-proton-cache.txt
+
+The file format is simple and human-readable:
+
+    PATH|... stores your library locations.
+
+    GAME|AppID|Name stores the cached API results.
+
+You can append information directly to the .clean-proton-cache.txt file if you so choose.
+
+License
+
+This project is licensed under the GPL v3 License (or MIT, depending on your choice). See the LICENSE file for details.
+
+Pro-Tip: Adding to your Path
+
+If you want to run this from anywhere on your Arch system (like clean-proton instead of ./clean-proton.sh), move the script to your local bin:
+Bash
+
+sudo cp clean-proton.sh /usr/local/bin/clean-proton
+
