@@ -1,9 +1,4 @@
-      _                                        _              
-  ___| | ___  __ _ _ __        _ __  _ __ ___ | |_ ___  _ __  
- / __| |/ _ \/ _` | '_ \ _____| '_ \| '__/ _ \| __/ _ \| '_ \ 
-| (__| |  __/ (_| | | | |_____| |_) | | | (_) | || (_) | | | |
- \___|_|\___|\__,_|_| |_|     | .__/|_|  \___/ \__\___/|_| |_|
-                              |_|                             
+clean-proton
 
 clean-proton is a lightweight Bash utility designed for Linux gamers to manage orphaned, bloated, or problematic Steam Proton compatdata (prefixes). It automatically maps cryptic Steam AppIDs to human-readable game names using the Steam Web API and provides an interactive interface for safe, multi-selection deletion.
 
@@ -42,7 +37,6 @@ Installation
 Usage
 
 Simply run the script to start the interactive scanner:
-Bash
 
 ./clean-proton.sh
 
