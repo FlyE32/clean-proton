@@ -8,7 +8,7 @@
 #                               |_|                             
 
 # clean-proton - Steam Proton Prefix Manager
-# Copyright (C) 2026 Cameron Rout (Github: FlyE32)
+# Copyright (C) 2026 Cameron "Cam" Rout (Github: FlyE32)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
