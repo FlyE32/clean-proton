@@ -1,73 +1,83 @@
-clean-proton
+<h1>clean-proton</h1>
 
-clean-proton is a lightweight Bash utility designed for Linux gamers to manage orphaned, bloated, or problematic Steam Proton compatdata (prefixes). It automatically maps cryptic Steam AppIDs to human-readable game names using the Steam Web API and provides an interactive interface for safe, multi-selection deletion.
+<h3>👋 Welcome to clean-proton!</h3>
+clean-proton is a friendly, lightweight Bash utility designed specifically for Linux gamers. It helps you find and clear out orphaned, bloated, or tempermental Proton prefixes (compatdata) without the headache of hunting down cryptic AppIDs.
 
-Features:
+<br><h3>Why use clean-proton?</h3>
 
-    Auto-Discovery: Scans all mounted drives to find Steam libraries automatically.
+<ul>
+    <li>Auto-Discovery: No need to hunt for folders. It scans your mounted drives to find Steam libraries automatically.</li>
+    <li>Human-Readable: It talks to the Steam Web API to turn those confusing numbers (AppIDs) into actual game titles.</li>
+    <li>Near-Instant: Persistent caching remembers your library paths and game names for lightning-fast subsequent runs.</li>
+    <li>Safe & Interactive: Pick exactly what you want to remove using an easy multi-select interface.</li>
+    <li>Zero-Config: A guided first-run experience gets you up and running in seconds.</li>
+</ul>
 
-    Persistent Caching: Remembers your library paths and game names to ensure near-instant subsequent runs.
+<br><h3>Installation</h3><br>
+Getting started is easy! Just follow these steps:<br>
 
-    Steam Web API Integration: Fetches accurate game titles directly from Steam.
-
-    Multi-Select Deletion: Remove multiple prefixes at once by entering their index numbers.
-
-    Zero-Config Setup: Guided first-run experience to get you started in seconds.
-
-Installation
-
-    Clone the repository:
-
+<ol>
+<li>Download dependecies</li>
+    
+    jq (for reading data)
+    curl (to talk to Steam)
+    util-linux (to find your drives)  
+    
+<li>Clone the repo:</li>
+    
     git clone https://github.com/FlyE32/clean-proton.git
     cd clean-proton
+    
+<li>Make it executable:</li>
+    
+    chmod +x clean-proton.sh        
+</ol>
 
-    Make the script executable:
-    Bash
+<br>One line install for dependencies and git repo:
 
-    chmod +x clean-proton.sh
+Arch:
 
-    Ensure dependencies are installed:
+    pacman -S --needed jq curl util-linux && git clone https://github.com/FlyE32/clean-proton.git && cd clean-proton && chmod +x clean-proton.sh
 
-        jq (for JSON parsing)
+Debian / Ubuntu / Mint / Pop!_OS:
 
-        curl (for API communication)
+    apt update && sudo apt install -y jq curl util-linux git && git clone https://github.com/FlyE32/clean-proton.git && cd clean-proton && chmod +x clean-proton.sh
 
-        util-linux (for mount detection)
+Fedora
 
-Usage
+    dnf install -y jq curl util-linux git && git clone https://github.com/FlyE32/clean-proton.git && cd clean-proton && chmod +x clean-proton.sh
 
-Simply run the script to start the interactive scanner:
+openSUSE (Tumbleweed/Leap)
 
-./clean-proton.sh
+    zypper install -y jq curl util-linux git && git clone https://github.com/FlyE32/clean-proton.git && cd clean-proton && chmod +x clean-proton.sh
+    
+<br><h3>Usage</h3>
+Simply launch the script to start the interactive scanner:
 
-Command Line Flags
-Flag	Description
--a <path>	Manually add a specific compatdata directory to the cache.
--s	Force a re-scan of all mounted drives for new Steam libraries.
--c	Clear the local cache file (~/.clean-proton-cache.txt).
--h	Show the help menu.
+    ./clean-proton.sh
 
-Cache Information
 
-The script stores configuration and game name mappings in:
-~/.clean-proton-cache.txt
+<br><h3>Command Line Flags</h3>
 
-The file format is simple and human-readable:
+|   Flag   |                         Description                         | 
+|----------|-------------------------------------------------------------|
+|-a <path> | Manually add a specific compatdata directory to your cache. |
+|-s	       | Force a fresh scan of all mounted drives for new libraries. |
+|-c	       | Clear your local cache file.                                |
+|-h	       | Show the help menu.                                         |
 
-    PATH|... stores your library locations.
 
-    GAME|AppID|Name stores the cached API results.
+<br><h3>Cache Information</h3>
+To keep things fast, the script stores your settings and game names in:<br>
+<br>~/.clean-proton-cache.txt<br>
+<br>The file is simple and human-readable. If you're comfortable, feel free to append your own paths or game mappings directly to the file!
 
-You can append information directly to the .clean-proton-cache.txt file if you so choose.
+<br><h3>Run it from anywhere</h3>
+If you want to run the tool by just typing clean-proton from any folder, move it to your local bin:
 
-License
+    sudo cp clean-proton.sh /usr/local/bin/clean-proton
 
-This project is licensed under the GPL v3 License (or MIT, depending on your choice). See the LICENSE file for details.
+Use code with caution.
 
-Pro-Tip: Adding to your Path
-
-If you want to run this from anywhere on your Arch system (like clean-proton instead of ./clean-proton.sh), move the script to your local bin:
-Bash
-
-sudo cp clean-proton.sh /usr/local/bin/clean-proton
-
+<br><h3>License</h3>
+This project is shared under the GPL v3 License. Feel free to use it, tweak it, and share it!
