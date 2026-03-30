@@ -1,6 +1,6 @@
 <h1>clean-proton</h1>
 
-<h3>👋 Welcome to clean-proton!</h3>
+<h2>👋 Welcome to clean-proton!</h2>
 clean-proton is a friendly, lightweight Bash utility designed specifically for Linux gamers. It helps you find and clear out orphaned, bloated, or tempermental Proton prefixes (compatdata) without the headache of hunting down cryptic AppIDs.
 
 <br><h3>Why use clean-proton?</h3>
@@ -12,6 +12,9 @@ clean-proton is a friendly, lightweight Bash utility designed specifically for L
     <li>Safe & Interactive: Pick exactly what you want to remove using an easy multi-select interface.</li>
     <li>Zero-Config: A guided first-run experience gets you up and running in seconds.</li>
 </ul>
+
+<br><h3>⚠️WARNING⚠️</h3>
+If your steam game is not using steam cloud to back up your save files. Deleting the Proton Prefix **CAN DELETE YOUR SAVE DATA**. If you would like to back up this save data, be sure to do so before deleting the prefix folder.
 
 <br><h3>Installation</h3><br>
 Getting started is easy! Just follow these steps:<br>
